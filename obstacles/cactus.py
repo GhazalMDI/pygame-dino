@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 class Cactus:
@@ -12,8 +14,18 @@ class Cactus:
         self.speed = 6
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         
-        self.image = pygame.image.load('assets/cactus.png')
-        self.image = pygame.transform.scale(self.image,(self.width,self.height))
+        self.images = [
+                pygame.transform.scale(
+                    pygame.image.load("assets/1_Cactus.png"),
+                    (40, 50)
+                ),
+                pygame.transform.scale(
+                    pygame.image.load("assets/3_Cactus.png"),
+                    (45, 50)   
+                )
+        ]
+        
+        self.image = random.choice(self.images)
         
     def update(self):
         """use the - becouse Cactus move to left """
