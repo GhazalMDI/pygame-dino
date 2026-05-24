@@ -1,10 +1,10 @@
-# 🦖 Dino Game (Pygame Edition)
+# Dino Game (Pygame Edition)
 
 ![preview](assets/dino_pygame.png)
 
 A polished recreation of the Chrome Dino game built using Python and Pygame.
 
-## ✨ Features
+## Features
 
 - Smooth movement
 - Jump physics
@@ -12,12 +12,12 @@ A polished recreation of the Chrome Dino game built using Python and Pygame.
 - High score system
 - Day/Night cycle
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Python
 - Pygame
 
-## 🚀 Run
+## Run
 
 ```bash
 pip install -r requirements.txt
