@@ -2,10 +2,8 @@ import pygame
 
 class Player:
     """create player class (Dino)"""
-    
     def __init__(self):
         self.x = 50
-        
         # dino  y-axis
         self.y = 300
         self.width = 45
@@ -21,16 +19,12 @@ class Player:
                 (self.width,self.height)
             )
         ]
-        
         self.current_frame = 0
         self.animation_timer = 0
         
-        
         self.rect = pygame.Rect(self.x,self.y,self.width,self.height)
 
-        
         self.color = (0,0,0)
-        
         # speed dino (y)
         self.velocity_y = 0
         self.gravity = 1
@@ -71,5 +65,4 @@ class Player:
         
     
     def draw(self,screen):
-        screen.blit(self.run_images[self.current_frame],
-                    (self.x,self.y))
+        screen.blit(self.run_images[self.current_frame],(self.x,self.y))
