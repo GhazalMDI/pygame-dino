@@ -30,7 +30,6 @@ class Player:
         self.gravity = 1
         
         self.jump_force = -15
-        
         # ground 
         self.ground_y = 290
         self.jump_sound = pygame.mixer.Sound("sounds/jump.mp3")
