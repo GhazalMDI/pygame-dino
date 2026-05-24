@@ -8,7 +8,7 @@ class Cactus:
         self.x = x
         self.y= 300
         
-        self.width = 30
+        self.width = 25
         self.height = 50
         
         self.speed = 6

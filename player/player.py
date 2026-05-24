@@ -38,7 +38,10 @@ class Player:
         self.jump_force = -15
         
         # ground 
-        self.ground_y = 300
+        self.ground_y = 290
+        self.jump_sound = pygame.mixer.Sound("sounds/jump.mp3")
+        self.die_sound = pygame.mixer.Sound("sounds/die.mp3")
+        self.pint_sound = pygame.mixer.Sound("sounds/point.mp3")
         
     
     def update(self):
@@ -46,7 +49,7 @@ class Player:
         
         if keys[pygame.K_SPACE] and self.y == self.ground_y:
             self.velocity_y = self.jump_force
-            
+            self.jump_sound.play()
             
         self.velocity_y +=self.gravity
         
