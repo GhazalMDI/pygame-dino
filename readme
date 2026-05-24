@@ -1,78 +1,271 @@
-Dino Game (Pygame Edition)
+# 🦖 Dino Game (Pygame Edition)
 
-A simple yet polished recreation of the classic Chrome Dino game built using Python and Pygame.
-The project demonstrates game loops, object-oriented design, collision detection, and basic animation systems.
+A polished recreation of the classic Chrome Dino game built using Python and Pygame.
 
-Features
-Smooth player movement and jumping physics
-Random cactus obstacles
-Flying bird enemies with animation
-High score system (saved locally)
-Dynamic day/night cycle with smooth transitions
-Sound effects (jump, death, scoring)
-Sprite animation for player and birds
-Increasing challenge through timed obstacle spawning
-Tech Stack
-    Python 3.x
-    Pygame
-📁 Project Structure
+This project demonstrates core game development concepts including:
+
+- Game loops
+- Object-oriented programming
+- Collision detection
+- Sprite animation systems
+- Jump physics
+- Dynamic obstacle spawning
+- Day/Night visual transitions
+
+The goal of this project was not only to recreate the original Chrome Dino experience, but also to build a clean and extensible game architecture using Python.
+
+---
+
+# 📸 Preview
+
+![Gameplay Preview](assets/preview.gif)
+
+---
+
+# ✨ Features
+
+## 🎮 Gameplay
+
+- Smooth dinosaur movement
+- Physics-based jumping system
+- Endless runner gameplay
+
+## 🚧 Obstacles
+
+- Random cactus spawning
+- Flying bird enemies
+- Dynamic obstacle timing
+
+## 🌗 Visual Effects
+
+- Day/Night cycle
+- Smooth background transitions
+- Animated sprites
+
+## 🔊 Audio
+
+- Jump sound effects
+- Death sound effects
+- Score point sound effects
+
+## 🏆 Score System
+
+- Real-time score tracking
+- Local high score saving
+- Persistent score storage
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| Python 3.x | Core programming language |
+| Pygame | Game development framework |
+
+---
+
+# 📁 Project Structure
+
+```bash
 project/
 │
-├── assets/              # Game images (Dino, Bird, Ground, etc.)
-├── sounds/              # Sound effects (jump, die, point)
+├── assets/                  # Game sprites and textures
+│
+├── sounds/                  # Sound effects
 │
 ├── obstacles/
-│   ├── cactus.py        # Cactus enemy logic
-│   └── bird.py          # Bird enemy logic
+│   ├── cactus.py            # Cactus obstacle logic
+│   └── bird.py              # Bird enemy logic
 │
 ├── player/
-│   └── player.py        # Player (Dino) class
+│   └── player.py            # Player (Dino) class
 │
-├── setting.py           # Game configuration (WIDTH, HEIGHT, FPS)
-├── main.py              # Main game loop
-└── highscore.txt        # Stores highest score locally
+├── setting.py               # Game settings & constants
+├── main.py                  # Main game loop
+└── highscore.txt            # Local high score storage
+```
 
+---
 
-▶️ Installation & Running
-1. Install dependencies
-pip install requirements.txt
-2. Run the game
+# 🚀 Installation
+
+## 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/dino-game-pygame.git
+cd dino-game-pygame
+```
+
+## 2️⃣ Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 3️⃣ Run the game
+
+```bash
 python main.py
+```
 
-🎮 Controls
-Key	Action
-SPACE	Jump
-SPACE (Game Over)	Restart Game
-ESC / Close Window	Quit Game
+---
 
-🧠 Game Architecture
+# 🎮 Controls
 
-The game is built around a main game loop that runs continuously:
+| Key | Action |
+|------|--------|
+| SPACE | Jump |
+| SPACE (Game Over) | Restart Game |
+| ESC | Quit Game |
 
-Event Handling
-    Keyboard input
-    Window events
-Update Phase
-    Player physics (gravity, jumping)
-    Obstacle spawning and movement
-    Collision detection
-    Score tracking
-    Day/Night transitions
-Render Phase
-    Drawing background
-    Rendering player and obstacles
-    Displaying score and UI
-🏆 Scoring System
-    Score increases over time while surviving
-    High score is saved locally in highscore.txt
-    Automatically updates when a new record is achieved
-🌗 Day & Night Cycle
-    Background smoothly transitions between light and dark states
-    Creates a dynamic visual experience during gameplay
-🚧 Obstacles
-    🌵 Cactus: Ground-based obstacle
-    🐦 Bird: Flying obstacle with random height variation
+---
 
-Each obstacle is spawned dynamically to increase difficulty over time.
+# 🧠 Game Architecture
 
-Meduim link :https://medium.com/@ghazal.mohammadi.developer/1d2e6d9dab2d
+The game is built around a continuous game loop that handles:
+
+1. Event processing
+2. Physics updates
+3. Collision detection
+4. Rendering
+5. Score management
+
+---
+
+# 🔄 Main Game Loop
+
+```python
+while running:
+    handle_events()
+    update()
+    draw()
+```
+
+The loop continuously updates the game state while rendering everything on screen.
+
+---
+
+# 👤 Player System
+
+The `Player` class controls:
+
+- Dino movement
+- Jump mechanics
+- Gravity system
+- Animation frames
+- Collision rectangle
+- Sound effects
+
+---
+
+# 🦘 Jump Physics
+
+The jump system uses:
+
+- Vertical velocity
+- Gravity acceleration
+- Negative jump force
+
+```python
+self.velocity_y = 0
+self.gravity = 1
+self.jump_force = -15
+```
+
+The negative jump force moves the player upward because the Y-axis in Pygame increases downward.
+
+---
+
+# 🎞️ Animation System
+
+The dinosaur animation works by switching between multiple running sprites.
+
+```python
+self.run_images = [...]
+self.current_frame = 0
+```
+
+The frame changes every few updates using an animation timer.
+
+---
+
+# 🚧 Obstacle System
+
+## 🌵 Cactus
+
+Ground obstacle that spawns randomly.
+
+## 🐦 Bird
+
+Flying enemy with:
+
+- Animated wings
+- Randomized height
+- Dynamic movement
+
+Obstacles become more challenging over time.
+
+---
+
+# 💥 Collision Detection
+
+Collision detection is handled using `pygame.Rect`.
+
+```python
+self.rect = pygame.Rect(
+    self.x,
+    self.y,
+    self.width,
+    self.height
+)
+```
+
+This allows accurate collision checks between the player and obstacles.
+
+---
+
+# 🏆 Scoring System
+
+The score increases as long as the player survives.
+
+Features:
+
+- Local high score saving
+- Automatic high score updates
+- Persistent storage using `highscore.txt`
+
+---
+
+# 🌗 Day & Night Cycle
+
+The game includes a smooth transition between:
+
+- Day mode
+- Night mode
+
+This creates a more dynamic gameplay experience.
+
+---
+
+# 🔊 Sound System
+
+Included sound effects:
+
+- Jump sound
+- Death sound
+- Point scoring sound
+
+```python
+self.jump_sound = pygame.mixer.Sound(
+    "sounds/jump.mp3"
+)
+```
+
+---
+
+# 📖 Medium Article
+
+Read the full project breakdown here:
+
+https://medium.com/@ghazal.mohammadi.developer/1d2e6d9dab2d
